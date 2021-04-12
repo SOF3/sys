@@ -1,0 +1,11 @@
+for DIR in ~/.bash_completions.d ~/.local/share/bash-completion/completions
+do
+	if [[ -d $DIR/ ]] && \
+		 ! find $DIR/. ! -name . -prune -exec false {} +
+	then
+			for f in $DIR/*
+			do
+					source "$f"
+			done
+	fi
+done
